@@ -2,14 +2,13 @@
 
 const express = require('express')
 const app = express()
-const path = require('path')
 const port = 3000
 
 // Static
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + "/public/"));
 
 // Set Views
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', (__dirname + '/views'));
 app.set('view engine', 'ejs');
 
 // Routes
