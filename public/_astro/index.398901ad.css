@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+:where(.astro-F74YX2ZT)[data-opacity-io] {
+    opacity: 0;
+    transition: opacity .6s cubic-bezier(.33, 1, .68, 1)
+}
+
+:where(.astro-F74YX2ZT)[data-opacity-io].isIntersect_opacity {
+    opacity: 1
+}
+
+.fv_wrapper:where(.astro-F74YX2ZT) {
+    position: relative
+}
+
+.title_01:where(.astro-F74YX2ZT),
+.title_02:where(.astro-F74YX2ZT),
+.title_03:where(.astro-F74YX2ZT) {
+    display: block;
+    font-weight: 600;
+    transform: scaleX(.9);
+    perspective: 100vw;
+    transform-origin: left center;
+    position: relative
+}
+
+.bAndroid .title_01:where(.astro-F74YX2ZT),
+.bAndroid .title_02:where(.astro-F74YX2ZT),
+.bAndroid .title_03:where(.astro-F74YX2ZT) {
+    font-weight: 700
+}
+
+@media screen and (min-width: 768px) {
+
+    .title_01:where(.astro-F74YX2ZT),
+    .title_02:where(.astro-F74YX2ZT),
+    .title_03:where(.astro-F74YX2ZT) {
+        letter-spacing: .04em;
+        font-size: 5.924375rem;
+        line-height: 1.3750395611
+    }
+}
+
+@media screen and (max-width:767.98px) {
+
+    .title_01:where(.astro-F74YX2ZT),
+    .title_02:where(.astro-F74YX2ZT),
+    .title_03:where(.astro-F74YX2ZT) {
+        letter-spacing: .04em;
+        font-size: 1.9215625rem;
+        line-height: 1.3750203285
+    }
+}
+
+.title_01:where(.astro-F74YX2ZT) .SectionTitle-splitTxt,
+.title_02:where(.astro-F74YX2ZT) .SectionTitle-splitTxt,
+.title_03:where(.astro-F74YX2ZT) .SectionTitle-splitTxt {
+    backface-visibility: hidden
+}
+
+.subTxt:where(.astro-F74YX2ZT) {
+    display: none;
+    color: #fff3;
+    font-family: Chakra Petch, sans-serif;
+    position: absolute;
+    top: 100%;
+    left: 0
+}
+
+@media screen and (max-width:767.98px) {
+    .subTxt:where(.astro-F74YX2ZT) {
+        font-size: .5625rem;
+        line-height: 1.4444444444;
+        letter-spacing: .08em;
+        margin-top: .9375rem
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .subTxt:where(.astro-F74YX2ZT) {
+        font-size: .75rem;
+        line-height: 1.8333;
+        letter-spacing: .18em;
+        margin-top: 1.25rem
+    }
+}
+
+:where(.astro-6ZP43ZDN)[data-opacity-io] {
+    opacity: 0;
+    transition: opacity .6s cubic-bezier(.33, 1, .68, 1)
+}
+
+:where(.astro-6ZP43ZDN)[data-opacity-io].isIntersect_opacity {
+    opacity: 1
+}
+
+.LowerTitle:where(.astro-6ZP43ZDN) {
+    position: absolute;
+    text-align: right
+}
+
+.LowerTitle:where(.astro-6ZP43ZDN) h2:where(.astro-6ZP43ZDN) {
+    font-family: Inter, Noto Sans JP, YuGothic, 游ゴシック, Hiragino Kaku Gothic ProN, Hiragino Sans, Meiryo, sans-serif;
+    font-weight: 700;
+    line-height: 1
+}
+
+@media screen and (min-width: 768px) {
+    .LowerTitle:where(.astro-6ZP43ZDN) h2:where(.astro-6ZP43ZDN) {
+        letter-spacing: .022em;
+        font-size: 2.375rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .LowerTitle:where(.astro-6ZP43ZDN) h2:where(.astro-6ZP43ZDN) {
+        letter-spacing: .01em;
+        font-size: 1.625rem
+    }
+}
+
+.LowerTitle:where(.astro-6ZP43ZDN) span:where(.astro-6ZP43ZDN) {
+    display: block;
+    transform: scaleX(.9);
+    font-weight: 600;
+    transform-origin: right
+}
+
+.bAndroid .LowerTitle:where(.astro-6ZP43ZDN) span:where(.astro-6ZP43ZDN) {
+    font-weight: 700
+}
+
+@media screen and (min-width: 768px) {
+    .LowerTitle:where(.astro-6ZP43ZDN) span:where(.astro-6ZP43ZDN) {
+        letter-spacing: .13em;
+        margin-top: .875rem;
+        font-size: 1.125rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .LowerTitle:where(.astro-6ZP43ZDN) span:where(.astro-6ZP43ZDN) {
+        letter-spacing: .1em;
+        margin-top: .46875rem;
+        font-size: .875rem
+    }
+}

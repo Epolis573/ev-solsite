@@ -1,0 +1,115 @@
+:where(.astro-ASTSNI5Y)[data-opacity-io] {
+    opacity: 0;
+    transition: opacity .6s cubic-bezier(.33, 1, .68, 1)
+}
+
+:where(.astro-ASTSNI5Y)[data-opacity-io].isIntersect_opacity {
+    opacity: 1
+}
+
+.LowerTxtGroup:where(.astro-ASTSNI5Y) .content:where(.astro-ASTSNI5Y) {
+    display: flex;
+    flex-flow: column;
+    overflow: hidden
+}
+
+.LowerTxtGroup:where(.astro-ASTSNI5Y).-center .main:where(.astro-ASTSNI5Y) {
+    text-align: center
+}
+
+.LowerTxtGroup:where(.astro-ASTSNI5Y).-center .content:where(.astro-ASTSNI5Y) {
+    align-items: center
+}
+
+.LowerTxtGroup:where(.astro-ASTSNI5Y).-center_404 .main:where(.astro-ASTSNI5Y) {
+    text-align: center
+}
+
+.LowerTxtGroup:where(.astro-ASTSNI5Y).-center_404 .content:where(.astro-ASTSNI5Y) {
+    align-items: center;
+    text-align: center
+}
+
+.LowerTxtGroup:where(.astro-ASTSNI5Y).-right .content:where(.astro-ASTSNI5Y) {
+    justify-content: flex-end
+}
+
+.LowerTxtGroup:where(.astro-ASTSNI5Y) .main:where(.astro-ASTSNI5Y) {
+    width: 111.1%
+}
+
+.LowerTxtGroup:where(.astro-ASTSNI5Y) .main:where(.astro-ASTSNI5Y) span:where(.astro-ASTSNI5Y) {
+    display: block;
+    font-weight: 600;
+    transform: scaleX(.9)
+}
+
+.bAndroid .LowerTxtGroup:where(.astro-ASTSNI5Y) .main:where(.astro-ASTSNI5Y) span:where(.astro-ASTSNI5Y) {
+    font-weight: 700
+}
+
+@media screen and (max-width:767.98px) {
+    .LowerTxtGroup:where(.astro-ASTSNI5Y) .main:where(.astro-ASTSNI5Y) span:where(.astro-ASTSNI5Y) {
+        letter-spacing: .05em;
+        line-height: 1.5;
+        font-size: 1.875rem
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .LowerTxtGroup:where(.astro-ASTSNI5Y) .main:where(.astro-ASTSNI5Y) span:where(.astro-ASTSNI5Y) {
+        letter-spacing: .05em;
+        font-size: 3.75rem;
+        line-height: 1.5
+    }
+}
+
+.LowerTxtGroup:where(.astro-ASTSNI5Y) .sub:where(.astro-ASTSNI5Y) {
+    display: block;
+    color: #fff;
+    text-align: justify
+}
+
+@media screen and (min-width: 768px) {
+    .LowerTxtGroup:where(.astro-ASTSNI5Y) .sub:where(.astro-ASTSNI5Y) {
+        width: 34.6875rem;
+        font-size: 1.125rem;
+        margin-top: 4.0625rem;
+        letter-spacing: .18em;
+        line-height: 2
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .LowerTxtGroup:where(.astro-ASTSNI5Y) .sub:where(.astro-ASTSNI5Y) {
+        width: 22.125rem;
+        font-size: .9375rem;
+        margin-top: 1.5rem;
+        letter-spacing: .1em;
+        line-height: 1.8
+    }
+}
+
+.LowerTxtGroup:where(.astro-ASTSNI5Y) .pc_txt:where(.astro-ASTSNI5Y) {
+    display: block;
+    color: #fff;
+    text-align: justify
+}
+
+@media screen and (min-width: 768px) {
+    .LowerTxtGroup:where(.astro-ASTSNI5Y) .pc_txt:where(.astro-ASTSNI5Y) {
+        width: 34.6875rem;
+        font-size: 1.125rem;
+        letter-spacing: .18em;
+        line-height: 2
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .LowerTxtGroup:where(.astro-ASTSNI5Y) .pc_txt:where(.astro-ASTSNI5Y) {
+        width: 22.125rem;
+        font-size: .9375rem;
+        letter-spacing: .1em;
+        line-height: 1.8
+    }
+}

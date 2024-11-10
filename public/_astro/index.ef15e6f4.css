@@ -1,0 +1,138 @@
+:where(.astro-2PBTNOC4)[data-opacity-io] {
+    opacity: 0;
+    transition: opacity .6s cubic-bezier(.33, 1, .68, 1)
+}
+
+:where(.astro-2PBTNOC4)[data-opacity-io].isIntersect_opacity {
+    opacity: 1
+}
+
+.IconList:where(.astro-2PBTNOC4) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+@media screen and (min-width: 768px) {
+    .IconList:where(.astro-2PBTNOC4) {
+        width: 42.8125rem;
+        row-gap: 5.625rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .IconList:where(.astro-2PBTNOC4) {
+        row-gap: 4.0625rem
+    }
+}
+
+.IconItem:where(.astro-2PBTNOC4) {
+    position: relative;
+    counter-increment: number
+}
+
+@media screen and (min-width: 768px) {
+    .IconItem:where(.astro-2PBTNOC4) {
+        width: 18.125rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .IconItem:where(.astro-2PBTNOC4) {
+        width: 9.53125rem
+    }
+}
+
+.head:where(.astro-2PBTNOC4) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline
+}
+
+.head-value:where(.astro-2PBTNOC4) {
+    font-family: Chakra Petch, sans-serif;
+    letter-spacing: .05em;
+    color: #fff
+}
+
+@media screen and (min-width: 768px) {
+    .head-value:where(.astro-2PBTNOC4) {
+        font-size: .75rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .head-value:where(.astro-2PBTNOC4) {
+        font-size: .75rem
+    }
+}
+
+.head-value:where(.astro-2PBTNOC4):after {
+    content: counter(number, decimal-leading-zero);
+    margin-left: .625rem
+}
+
+@media screen and (min-width: 768px) {
+    .head-icon:where(.astro-2PBTNOC4) {
+        width: 4.5625rem;
+        height: 4.5625rem;
+        margin-right: .9375rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .head-icon:where(.astro-2PBTNOC4) {
+        width: 2.65625rem;
+        height: 2.65625rem;
+        margin-right: .15625rem
+    }
+}
+
+.content-title:where(.astro-2PBTNOC4) {
+    font-weight: 600;
+    transform: scaleX(.9);
+    transform-origin: left
+}
+
+.bAndroid .content-title:where(.astro-2PBTNOC4) {
+    font-weight: 700
+}
+
+@media screen and (min-width: 768px) {
+    .content-title:where(.astro-2PBTNOC4) {
+        letter-spacing: .15em;
+        font-size: 1.5rem;
+        margin-block: 1.5625rem 2.8125rem;
+        line-height: 1.75
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .content-title:where(.astro-2PBTNOC4) {
+        letter-spacing: .13em;
+        font-size: 1.25rem;
+        line-height: 1.4;
+        margin-block: 1.25rem 1.21875rem
+    }
+}
+
+.content-text:where(.astro-2PBTNOC4) {
+    text-align: justify
+}
+
+@media screen and (min-width: 768px) {
+    .content-text:where(.astro-2PBTNOC4) {
+        letter-spacing: .14em;
+        font-size: .9375rem;
+        line-height: 1.8666666667;
+        margin-top: auto;
+        margin-right: 2.8125rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .content-text:where(.astro-2PBTNOC4) {
+        font-size: .875rem;
+        line-height: 1.7142857143
+    }
+}

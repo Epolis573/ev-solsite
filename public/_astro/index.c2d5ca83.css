@@ -1,0 +1,160 @@
+:where(.astro-IANGWUT4)[data-opacity-io] {
+    opacity: 0;
+    transition: opacity .6s cubic-bezier(.33, 1, .68, 1)
+}
+
+:where(.astro-IANGWUT4)[data-opacity-io].isIntersect_opacity {
+    opacity: 1
+}
+
+.GradationBgOnFv:where(.astro-IANGWUT4) {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    overflow: hidden
+}
+
+.GradationBgOnFv:where(.astro-IANGWUT4) .bg-grad-container:where(.astro-IANGWUT4) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0
+}
+
+.GradationBgOnFv:where(.astro-IANGWUT4) .bg-grad-container:where(.astro-IANGWUT4).isAnimate .bg-grad1:where(.astro-IANGWUT4) {
+    animation: move-gradient1 18s cubic-bezier(.37, 0, .63, 1) infinite
+}
+
+.GradationBgOnFv:where(.astro-IANGWUT4) .bg-grad-container:where(.astro-IANGWUT4).isAnimate .bg-grad2:where(.astro-IANGWUT4) {
+    animation: move-gradient2 32s cubic-bezier(.37, 0, .63, 1) infinite
+}
+
+.GradationBgOnFv:where(.astro-IANGWUT4) .bg-grad-container:where(.astro-IANGWUT4).isAnimate .bg-grad3:where(.astro-IANGWUT4) {
+    animation: move-gradient3 20s cubic-bezier(.65, 0, .35, 1) infinite
+}
+
+.bg-grad:where(.astro-IANGWUT4) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateZ(0);
+    background-size: 200% 100%
+}
+
+.bg-grad:where(.astro-IANGWUT4).bg-grad1 {
+    background-image: radial-gradient(ellipse 70% 50% at 40% -10%, rgba(156, 107, 87, .8) 0%, rgba(120, 70, 52, .4) 40%, rgba(45, 45, 66, .6) 60%, rgba(45, 45, 66, 0) 100%);
+    background-position: 100% 50%
+}
+
+.bg-grad:where(.astro-IANGWUT4).bg-grad2 {
+    height: 80%;
+    background-image: radial-gradient(ellipse 60% 100% at 50% -5%, rgba(156, 107, 87, .5) 0%, rgba(120, 70, 52, .6) 20%, rgba(45, 44, 92, .2) 60%, rgba(45, 44, 92, 0) 100%)
+}
+
+@media screen and (max-width:767.98px) {
+    .bg-grad:where(.astro-IANGWUT4).bg-grad2 {
+        width: 150%;
+        height: 60%;
+        position: relative;
+        left: -25%
+    }
+}
+
+.bg-grad:where(.astro-IANGWUT4).bg-grad3 {
+    height: 60%;
+    background-size: 140% 100%;
+    background-image: radial-gradient(ellipse 70% 70% at 60% 50%, rgba(156, 107, 87, .25) 0%, rgba(122, 83, 75, .3) 20%, rgba(45, 44, 92, .2) 60%, rgba(45, 44, 92, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, black 20%, rgba(0, 0, 0, .8) 90%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, black 20%, rgba(0, 0, 0, .8) 90%, rgba(0, 0, 0, 0) 100%)
+}
+
+.bg-noise:where(.astro-IANGWUT4) {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(noise_texture_30.9bf8a496.png);
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, rgba(0, 0, 0, .7) 50%, rgba(0, 0, 0, .5) 70%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, black 20%, rgba(0, 0, 0, .7) 50%, rgba(0, 0, 0, .5) 70%, rgba(0, 0, 0, 0) 100%)
+}
+
+@keyframes move-gradient1 {
+    0% {
+        background-position: 80% 50%
+    }
+
+    50% {
+        background-position: 20% 50%
+    }
+
+    to {
+        background-position: 80% 50%
+    }
+}
+
+@keyframes move-gradient2 {
+    0% {
+        background-position: 100% 50%
+    }
+
+    50% {
+        background-position: 0% 50%
+    }
+
+    to {
+        background-position: 100% 50%
+    }
+}
+
+@keyframes move-gradient3 {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    to {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes fluidrotate {
+
+    0%,
+    to {
+        border-radius: 63% 37% 54% 46%/55% 48% 52% 45%
+    }
+
+    14% {
+        border-radius: 40% 60% 54% 46%/49% 60% 40% 51%
+    }
+
+    28% {
+        border-radius: 54% 46% 38% 62%/49% 70% 30% 51%
+    }
+
+    42% {
+        border-radius: 61% 39% 55% 45%/61% 38% 62% 39%
+    }
+
+    56% {
+        border-radius: 61% 39% 67% 33%/70% 50% 50% 30%
+    }
+
+    70% {
+        border-radius: 50% 50% 34% 66%/56% 68% 32% 44%
+    }
+
+    84% {
+        border-radius: 46% 54% 50% 50%/35% 61% 39% 65%
+    }
+}

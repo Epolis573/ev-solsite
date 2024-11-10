@@ -1,0 +1,165 @@
+:where(.astro-BC42TGPQ)[data-opacity-io] {
+    opacity: 0;
+    transition: opacity .6s cubic-bezier(.33, 1, .68, 1)
+}
+
+:where(.astro-BC42TGPQ)[data-opacity-io].isIntersect_opacity {
+    opacity: 1
+}
+
+.gradation_bg:where(.astro-BC42TGPQ) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none
+}
+
+.gradation_bg:where(.astro-BC42TGPQ).-dark {
+    opacity: .7
+}
+
+@media screen and (min-width: 768px) {
+
+    .gradation_bg:where(.astro-BC42TGPQ) .bg-grad:where(.astro-BC42TGPQ),
+    .gradation_bg:where(.astro-BC42TGPQ) .bg-noise:where(.astro-BC42TGPQ) {
+        aspect-ratio: 1600/1897
+    }
+}
+
+@media screen and (max-width:767.98px) {
+
+    .gradation_bg:where(.astro-BC42TGPQ) .bg-grad:where(.astro-BC42TGPQ),
+    .gradation_bg:where(.astro-BC42TGPQ) .bg-noise:where(.astro-BC42TGPQ) {
+        aspect-ratio: 828/1800
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .gradation_bg:where(.astro-BC42TGPQ).-forSticky .bg-grad:where(.astro-BC42TGPQ),
+    .gradation_bg:where(.astro-BC42TGPQ).-forSticky .bg-noise:where(.astro-BC42TGPQ) {
+        aspect-ratio: 1600/1600
+    }
+}
+
+@media screen and (max-width:767.98px) {
+
+    .gradation_bg:where(.astro-BC42TGPQ).-forSticky .bg-grad:where(.astro-BC42TGPQ),
+    .gradation_bg:where(.astro-BC42TGPQ).-forSticky .bg-noise:where(.astro-BC42TGPQ) {
+        aspect-ratio: 828/1800
+    }
+}
+
+.gradation_bg:where(.astro-BC42TGPQ).addMaskImage .bg-grad:where(.astro-BC42TGPQ):before,
+.gradation_bg:where(.astro-BC42TGPQ).addMaskImage .bg-grad:where(.astro-BC42TGPQ):after {
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, .2) 90%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, .2) 90%, rgba(0, 0, 0, 0) 100%)
+}
+
+.gradation_bg:where(.astro-BC42TGPQ).addMaskImage .bg-noise:where(.astro-BC42TGPQ) {
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .3) 20%, rgba(0, 0, 0, .8) 50%, rgba(0, 0, 0, .8) 80%, rgba(0, 0, 0, .5) 90%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .3) 20%, rgba(0, 0, 0, .8) 50%, rgba(0, 0, 0, .8) 80%, rgba(0, 0, 0, .5) 90%, rgba(0, 0, 0, 0) 100%)
+}
+
+.gradation_bg:where(.astro-BC42TGPQ).isIntersect .bg-grad:where(.astro-BC42TGPQ),
+.gradation_bg:where(.astro-BC42TGPQ).isIntersect .bg-noise:where(.astro-BC42TGPQ) {
+    opacity: 1;
+    transition: opacity 2s cubic-bezier(.33, 1, .68, 1)
+}
+
+.gradation_bg:where(.astro-BC42TGPQ).-noAnim .bg-grad:where(.astro-BC42TGPQ),
+.gradation_bg:where(.astro-BC42TGPQ).-noAnim .bg-noise:where(.astro-BC42TGPQ) {
+    opacity: 1
+}
+
+.gradation_bg:where(.astro-BC42TGPQ) .bg-grad:where(.astro-BC42TGPQ),
+.gradation_bg:where(.astro-BC42TGPQ) .bg-noise:where(.astro-BC42TGPQ) {
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(.33, 1, .68, 1)
+}
+
+.gradation_bg:where(.astro-BC42TGPQ) .bg-grad:where(.astro-BC42TGPQ) {
+    background: linear-gradient(to bottom, rgba(49, 41, 39, 0) 0%, rgba(20, 49, 213, .3) 25%, rgba(247, 185, 103, .8) 58%, rgba(247, 185, 103, .8) 60%, rgba(219, 123, 71, .8) 70%, rgba(200, 57, 49, .8) 80%, rgba(49, 41, 39, .5) 90%, rgba(49, 41, 39, 0) 100%)
+}
+
+.gradation_bg:where(.astro-BC42TGPQ) .bg-grad:where(.astro-BC42TGPQ).isAnimate:before {
+    animation: bggradient_linearBefore 8s ease infinite
+}
+
+.gradation_bg:where(.astro-BC42TGPQ) .bg-grad:where(.astro-BC42TGPQ).isAnimate:after {
+    animation: bggradient_linearAfter 10s ease infinite
+}
+
+.gradation_bg:where(.astro-BC42TGPQ) .bg-grad:where(.astro-BC42TGPQ):before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    transform: translateZ(0);
+    background: radial-gradient(ellipse 90% 45% at 30% 61%, rgba(247, 185, 103, .5) 0%, rgba(247, 185, 103, .3) 20%, rgba(195, 62, 56, .8) 50%, #312927 100%);
+    background-size: 200% 100%
+}
+
+.gradation_bg:where(.astro-BC42TGPQ) .bg-grad:where(.astro-BC42TGPQ):after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateZ(0);
+    background: radial-gradient(ellipse 100% 55% at 40% 71%, rgba(247, 185, 103, .5) 0%, rgba(247, 185, 103, .4) 20%, rgba(195, 62, 56, .8) 50%, #312927 100%);
+    background-size: 200% 100%
+}
+
+.bg-noise:where(.astro-BC42TGPQ) {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: url(noise_texture_10.460ea83c.png)
+}
+
+.bg-grad:where(.astro-BC42TGPQ) {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform-origin: bottom center
+}
+
+@keyframes bggradient_linearBefore {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    to {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes bggradient_linearAfter {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    to {
+        background-position: 0% 50%
+    }
+}

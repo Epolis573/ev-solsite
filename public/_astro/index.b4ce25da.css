@@ -1,0 +1,85 @@
+:where(.astro-G5V2PYL7)[data-opacity-io] {
+    opacity: 0;
+    transition: opacity .6s cubic-bezier(.33, 1, .68, 1)
+}
+
+:where(.astro-G5V2PYL7)[data-opacity-io].isIntersect_opacity {
+    opacity: 1
+}
+
+.AnchorLinks:where(.astro-G5V2PYL7) {
+    position: absolute;
+    z-index: 3
+}
+
+@media screen and (min-width: 768px) {
+    .AnchorLinks:where(.astro-G5V2PYL7) {
+        left: 5.5rem;
+        bottom: 10.1875rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .AnchorLinks:where(.astro-G5V2PYL7) {
+        left: 1.875rem;
+        bottom: 5.3125rem
+    }
+}
+
+.links:where(.astro-G5V2PYL7) {
+    font-weight: 600
+}
+
+.bAndroid .links:where(.astro-G5V2PYL7) {
+    font-weight: 700
+}
+
+@media screen and (min-width: 768px) {
+    .links:where(.astro-G5V2PYL7) {
+        letter-spacing: .11em;
+        font-size: .875rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .links:where(.astro-G5V2PYL7) {
+        letter-spacing: .05em;
+        font-size: .75rem
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .links-list:where(.astro-G5V2PYL7)+.links-list:where(.astro-G5V2PYL7) {
+        margin-top: .75rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .links-list:where(.astro-G5V2PYL7)+.links-list:where(.astro-G5V2PYL7) {
+        margin-top: .75rem
+    }
+}
+
+.link:where(.astro-G5V2PYL7) {
+    transition: opacity .3s cubic-bezier(.23, 1, .32, 1)
+}
+
+[data-whatintent=mouse] .link:where(.astro-G5V2PYL7):hover {
+    opacity: .5
+}
+
+.link-icon:where(.astro-G5V2PYL7) {
+    vertical-align: middle
+}
+
+@media screen and (min-width: 768px) {
+    .link-icon:where(.astro-G5V2PYL7) {
+        margin-right: .4375rem
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .link-icon:where(.astro-G5V2PYL7) {
+        margin-right: .28125rem
+    }
+}

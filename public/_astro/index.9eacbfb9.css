@@ -1,0 +1,122 @@
+:where(.astro-DCKUIBTX)[data-opacity-io] {
+    opacity: 0;
+    transition: opacity .6s cubic-bezier(.33, 1, .68, 1)
+}
+
+:where(.astro-DCKUIBTX)[data-opacity-io].isIntersect_opacity {
+    opacity: 1
+}
+
+.BrushContainer:where(.astro-DCKUIBTX) {
+    position: relative;
+    background-image: url(noise_texture_10.460ea83c.png);
+    background-position: center center;
+    background-color: #b4b4b4
+}
+
+.BrushContainer:where(.astro-DCKUIBTX).-transparent {
+    background-image: none;
+    background-color: transparent
+}
+
+.BrushContainer:where(.astro-DCKUIBTX).-black {
+    background-color: #221c1f
+}
+
+@supports (overflow: clip) {
+    @media screen and (min-width: 768px) {
+        .BrushContainer:where(.astro-DCKUIBTX).-top {
+            padding: 19.125rem 0 0;
+            mask-image: image-set(url(brush_border_top.6d828e83.png) 1x, url(brush_border_top.png%402x.11600720.png) 2x), linear-gradient(to bottom, black 0%, black 100%);
+            mask-position: 0 1px, bottom center;
+            mask-repeat: no-repeat, no-repeat;
+            mask-size: 100%, 100% calc(100% - 19.125rem);
+            -webkit-mask-image: -webkit-image-set(url(brush_border_top.6d828e83.png) 1x, url(brush_border_top.png%402x.11600720.png) 2x), linear-gradient(to bottom, black 0%, black 100%);
+            -webkit-mask-position: 0 1px, bottom center;
+            -webkit-mask-repeat: no-repeat, no-repeat;
+            -webkit-mask-size: 100%, 100% calc(100% - 19.125rem)
+        }
+    }
+}
+
+@supports (overflow: clip) {
+    @media screen and (max-width:767.98px) {
+        .BrushContainer:where(.astro-DCKUIBTX).-top {
+            padding: 4.95rem 0 0;
+            mask-image: url(brush_border_top.6d828e83.png), linear-gradient(to bottom, black 0%, black 100%);
+            mask-position: 0 1px, bottom center;
+            mask-repeat: repeat-x, no-repeat;
+            mask-size: 100%, 100% calc(100% - 4.95rem);
+            -webkit-mask-image: url(brush_border_top.6d828e83.png), linear-gradient(to bottom, black 0%, black 100%);
+            -webkit-mask-position: 0 1px, bottom center;
+            -webkit-mask-repeat: no-repeat, no-repeat;
+            -webkit-mask-size: 100%, 100% calc(100% - 4.95rem)
+        }
+    }
+}
+
+@supports (overflow: clip) {
+    @media screen and (min-width: 768px) {
+        .BrushContainer:where(.astro-DCKUIBTX).-bottom {
+            padding: 0 0 19.125rem;
+            mask-image: image-set(url(brush_border_bottom.96228be0.png) 1x, url(brush_border_bottom.png%402x.bf0ada5e.png) 2x), linear-gradient(to bottom, black 0%, black 100%);
+            mask-position: 0 calc(100% - 1px), top center;
+            mask-repeat: no-repeat, no-repeat;
+            mask-size: 100%, 100% calc(100% - 19.125rem);
+            -webkit-mask-image: -webkit-image-set(url(brush_border_bottom.96228be0.png) 1x, url(brush_border_bottom.png%402x.bf0ada5e.png) 2x), linear-gradient(to bottom, black 0%, black 100%);
+            -webkit-mask-position: 0 calc(100% - 1px), top center;
+            -webkit-mask-repeat: no-repeat, no-repeat;
+            -webkit-mask-size: 100%, 100% calc(100% - 19.125rem)
+        }
+    }
+
+    @media screen and (max-width:767.98px) {
+        .BrushContainer:where(.astro-DCKUIBTX).-bottom {
+            padding: 0 0 4.95rem;
+            mask-image: url(brush_border_bottom.96228be0.png), linear-gradient(to bottom, black 0%, black 100%);
+            mask-position: 0 calc(100% - 1px), top center;
+            mask-repeat: no-repeat, no-repeat;
+            mask-size: 100%, 100% calc(100% - 4.95rem);
+            -webkit-mask-image: url(brush_border_bottom.96228be0.png), linear-gradient(to bottom, black 0%, black 100%);
+            -webkit-mask-position: 0 calc(100% - 1px), top center;
+            -webkit-mask-repeat: no-repeat, no-repeat;
+            -webkit-mask-size: 100%, 100% calc(100% - 4.95rem)
+        }
+    }
+}
+
+@supports (overflow: clip) {
+    @media screen and (min-width: 768px) {
+        .BrushContainer:where(.astro-DCKUIBTX).-both {
+            padding: 19.125rem 0;
+            mask-image: image-set(url(brush_border_top.6d828e83.png) 1x, url(brush_border_top.png%402x.11600720.png) 2x), linear-gradient(to bottom, black 0%, black 100%), image-set(url(brush_border_bottom.96228be0.png) 1x, url(brush_border_bottom.png%402x.bf0ada5e.png) 2x);
+            mask-position: 0 1px, center center, 0 calc(100% - 1px);
+            mask-repeat: repeat-x, no-repeat, repeat-x;
+            mask-size: 100%, 100% calc(100% - 38.25rem), 100%;
+            -webkit-mask-image: -webkit-image-set(url(brush_border_top.6d828e83.png) 1x, url(brush_border_top.png%402x.11600720.png) 2x), linear-gradient(to bottom, black 0%, black 100%), -webkit-image-set(url(brush_border_bottom.96228be0.png) 1x, url(brush_border_bottom.png%402x.bf0ada5e.png) 2x);
+            -webkit-mask-position: 0 1px, center center, 0 calc(100% - 1px);
+            -webkit-mask-repeat: repeat-x, no-repeat, repeat-x;
+            -webkit-mask-size: 100%, 100% calc(100% - 38.25rem), 100%
+        }
+    }
+
+    @media screen and (max-width:767.98px) {
+        .BrushContainer:where(.astro-DCKUIBTX).-both {
+            padding: 4.95rem 0;
+            mask-image: url(brush_border_top.6d828e83.png), linear-gradient(to bottom, black 0%, black 100%), url(brush_border_bottom.96228be0.png);
+            mask-position: 0 1px, center center, 0 calc(100% - 1px);
+            mask-repeat: repeat-x, no-repeat, repeat-x;
+            mask-size: 100%, 100% calc(100% - 9.9rem), 100%;
+            -webkit-mask-image: url(brush_border_top.6d828e83.png), linear-gradient(to bottom, black 0%, black 100%), url(brush_border_bottom.96228be0.png);
+            -webkit-mask-position: 0 1px, center center, 0 calc(100% - 1px);
+            -webkit-mask-repeat: repeat-x, no-repeat, repeat-x;
+            -webkit-mask-size: 100%, 100% calc(100% - 9.9rem), 100%
+        }
+    }
+}
+
+.BrushContainer:where(.astro-DCKUIBTX).MemberContainer,
+.BrushContainer:where(.astro-DCKUIBTX).GreetingFromThePresidentWrapper {
+    background-color: #adacab;
+    background-image: none
+}
