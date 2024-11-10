@@ -18,9 +18,6 @@ app.get('', (req, res) => {
 app.get('/index', (req, res) => {
     res.render('index');
 });
-app.get('/sitemap-index', (req, res) => {
-    res.render('sitemap-index');
-});
 app.get('/about', (req, res) => {
     res.render('about');
 });
