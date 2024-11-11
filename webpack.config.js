@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: '/public/_astro/hoisted.e1f00afd.js', // Path to your entry file
+  entry: '/public/_astro/hoisted.ceeda80f.js', // Path to your entry file
   output: {
-    filename: 'bundleabouts.js',             // Output bundled file
+    filename: 'bundlecareers.js',             // Output bundled file
     path: path.resolve(__dirname, 'public/_astro') // Output directory
   },
   module: {
