@@ -21,8 +21,8 @@ app.get('/index', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about');
 });
-app.get('/carrers', (req, res) => {
-    res.render('carrers');
+app.get('/careers', (req, res) => {
+    res.render('careers');
 });
 app.get('/news', (req, res) => {
     res.render('news');
