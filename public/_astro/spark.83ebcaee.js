@@ -1,4 +1,4 @@
-var n=`precision highp float;
+var n = `precision highp float;
 
 uniform sampler2D uTexture;
 uniform float uTime;
@@ -77,4 +77,5 @@ void main() {
   
   
   
-}`;export{n as s};
+}`;
+export { n as s };

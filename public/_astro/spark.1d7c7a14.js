@@ -1,4 +1,4 @@
-var n=`precision highp float;
+var n = `precision highp float;
 
 varying vec2 vUv;
 
@@ -86,4 +86,17 @@ void main() {
 
   gl_FragColor = color;
   
-}`;const o={src:"/_astro/background_night.59ea5718.jpg",width:1600,height:964,format:"jpg"},e={src:"/_astro/spark.1cd623da.png",width:146,height:46,format:"png"};export{o as a,e as i,n as s};
+}`;
+const o = {
+    src: "/_astro/background_night.59ea5718.jpg",
+    width: 1600,
+    height: 964,
+    format: "jpg"
+  },
+  e = {
+    src: "/_astro/spark.1cd623da.png",
+    width: 146,
+    height: 46,
+    format: "png"
+  };
+export { o as a, e as i, n as s };

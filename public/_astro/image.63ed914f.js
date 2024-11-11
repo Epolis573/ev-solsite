@@ -1,4 +1,10 @@
-const n={src:"/_astro/cloud_01.60726504.png",width:1436,height:1800,format:"png"};var o=`precision highp float;
+const n = {
+  src: "/_astro/cloud_01.60726504.png",
+  width: 1436,
+  height: 1800,
+  format: "png"
+};
+var o = `precision highp float;
 
 varying vec2 vUv;
 
@@ -23,4 +29,5 @@ void main() {
 
   gl_FragColor = color;
   
-}`;export{o as a,n as i};
+}`;
+export { o as a, n as i };

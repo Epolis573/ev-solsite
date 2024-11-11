@@ -1,4 +1,62 @@
-import{bf as me,W as L,bg as Q,bh as ge,bi as be,bj as xe,bk as Ce,aD as w,bl as De,C as ye,V as m,aE as fe,P as Me,aF as de,S as Fe,g as ke,H as G,c as we,i as Se,a as q}from"./constants.e6c90e33.js";import{z as k,i as W,s as Oe}from"./PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js";const Ie={defines:{DEPTH_PACKING:1,PERSPECTIVE_CAMERA:1},uniforms:{tColor:{value:null},tDepth:{value:null},focus:{value:1},aspect:{value:1},aperture:{value:.025},maxblur:{value:.01},nearClip:{value:1},farClip:{value:1e3}},vertexShader:`
+import {
+  bf as me,
+  W as L,
+  bg as Q,
+  bh as ge,
+  bi as be,
+  bj as xe,
+  bk as Ce,
+  aD as w,
+  bl as De,
+  C as ye,
+  V as m,
+  aE as fe,
+  P as Me,
+  aF as de,
+  S as Fe,
+  g as ke,
+  H as G,
+  c as we,
+  i as Se,
+  a as q
+} from "./constants.e6c90e33.js";
+import {
+  z as k,
+  i as W,
+  s as Oe
+} from "./PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js";
+const Ie = {
+  defines: {
+    DEPTH_PACKING: 1,
+    PERSPECTIVE_CAMERA: 1
+  },
+  uniforms: {
+    tColor: {
+      value: null
+    },
+    tDepth: {
+      value: null
+    },
+    focus: {
+      value: 1
+    },
+    aspect: {
+      value: 1
+    },
+    aperture: {
+      value: 0.025
+    },
+    maxblur: {
+      value: 0.01
+    },
+    nearClip: {
+      value: 1
+    },
+    farClip: {
+      value: 1e3
+    }
+  },
+  vertexShader: `
 
 		varying vec2 vUv;
 
@@ -7,7 +65,8 @@ import{bf as me,W as L,bg as Q,bh as ge,bi as be,bj as xe,bk as Ce,aD as w,bl as
 			vUv = uv;
 			gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
 
-		}`,fragmentShader:`
+		}`,
+  fragmentShader: `
 
 		#include <common>
 
@@ -108,7 +167,76 @@ import{bf as me,W as L,bg as Q,bh as ge,bi as be,bj as xe,bk as Ce,aD as w,bl as
 			gl_FragColor = col / 41.0;
 			gl_FragColor.a = 1.0;
 
-		}`};class tn extends me{constructor(a,f,c){super(),this.scene=a,this.camera=f;const C=c.focus!==void 0?c.focus:1,y=c.aspect!==void 0?c.aspect:f.aspect,I=c.aperture!==void 0?c.aperture:.025,d=c.maxblur!==void 0?c.maxblur:1;this.renderTargetDepth=new L(1,1,{minFilter:Q,magFilter:Q}),this.renderTargetDepth.texture.name="BokehPass.depth",this.materialDepth=new ge,this.materialDepth.depthPacking=be,this.materialDepth.blending=xe;const n=Ie,s=Ce.clone(n.uniforms);s.tDepth.value=this.renderTargetDepth.texture,s.focus.value=C,s.aspect.value=y,s.aperture.value=I,s.maxblur.value=d,s.nearClip.value=f.near,s.farClip.value=f.far,this.materialBokeh=new w({defines:Object.assign({},n.defines),uniforms:s,vertexShader:n.vertexShader,fragmentShader:n.fragmentShader}),this.uniforms=s,this.needsSwap=!1,this.fsQuad=new De(this.materialBokeh),this._oldClearColor=new ye}render(a,f,c){this.scene.overrideMaterial=this.materialDepth,a.getClearColor(this._oldClearColor);const C=a.getClearAlpha(),y=a.autoClear;a.autoClear=!1,a.setClearColor(16777215),a.setClearAlpha(1),a.setRenderTarget(this.renderTargetDepth),a.clear(),a.render(this.scene,this.camera),this.uniforms.tColor.value=c.texture,this.uniforms.nearClip.value=this.camera.near,this.uniforms.farClip.value=this.camera.far,this.renderToScreen?(a.setRenderTarget(null),this.fsQuad.render(a)):(a.setRenderTarget(f),a.clear(),this.fsQuad.render(a)),this.scene.overrideMaterial=null,a.setClearColor(this._oldClearColor),a.setClearAlpha(C),a.autoClear=y}setSize(a,f){this.renderTargetDepth.setSize(a,f)}dispose(){this.renderTargetDepth.dispose(),this.materialDepth.dispose(),this.materialBokeh.dispose(),this.fsQuad.dispose()}}var Ne=`#define PI 3.141592653589793
+		}`
+};
+class tn extends me {
+  constructor(a, f, c) {
+    super(), (this.scene = a), (this.camera = f);
+    const C = c.focus !== void 0 ? c.focus : 1,
+      y = c.aspect !== void 0 ? c.aspect : f.aspect,
+      I = c.aperture !== void 0 ? c.aperture : 0.025,
+      d = c.maxblur !== void 0 ? c.maxblur : 1;
+    (this.renderTargetDepth = new L(1, 1, {
+      minFilter: Q,
+      magFilter: Q
+    })),
+      (this.renderTargetDepth.texture.name = "BokehPass.depth"),
+      (this.materialDepth = new ge()),
+      (this.materialDepth.depthPacking = be),
+      (this.materialDepth.blending = xe);
+    const n = Ie,
+      s = Ce.clone(n.uniforms);
+    (s.tDepth.value = this.renderTargetDepth.texture),
+      (s.focus.value = C),
+      (s.aspect.value = y),
+      (s.aperture.value = I),
+      (s.maxblur.value = d),
+      (s.nearClip.value = f.near),
+      (s.farClip.value = f.far),
+      (this.materialBokeh = new w({
+        defines: Object.assign({}, n.defines),
+        uniforms: s,
+        vertexShader: n.vertexShader,
+        fragmentShader: n.fragmentShader
+      })),
+      (this.uniforms = s),
+      (this.needsSwap = !1),
+      (this.fsQuad = new De(this.materialBokeh)),
+      (this._oldClearColor = new ye());
+  }
+  render(a, f, c) {
+    (this.scene.overrideMaterial = this.materialDepth),
+      a.getClearColor(this._oldClearColor);
+    const C = a.getClearAlpha(),
+      y = a.autoClear;
+    (a.autoClear = !1),
+      a.setClearColor(16777215),
+      a.setClearAlpha(1),
+      a.setRenderTarget(this.renderTargetDepth),
+      a.clear(),
+      a.render(this.scene, this.camera),
+      (this.uniforms.tColor.value = c.texture),
+      (this.uniforms.nearClip.value = this.camera.near),
+      (this.uniforms.farClip.value = this.camera.far),
+      this.renderToScreen
+        ? (a.setRenderTarget(null), this.fsQuad.render(a))
+        : (a.setRenderTarget(f), a.clear(), this.fsQuad.render(a)),
+      (this.scene.overrideMaterial = null),
+      a.setClearColor(this._oldClearColor),
+      a.setClearAlpha(C),
+      (a.autoClear = y);
+  }
+  setSize(a, f) {
+    this.renderTargetDepth.setSize(a, f);
+  }
+  dispose() {
+    this.renderTargetDepth.dispose(),
+      this.materialDepth.dispose(),
+      this.materialBokeh.dispose(),
+      this.fsQuad.dispose();
+  }
+}
+var Ne = `#define PI 3.141592653589793
 #define PI2 6.283185307179586
 #define PI_HALF 1.5707963267948966
 #define RECIPROCAL_PI 0.3183098861837907
@@ -537,7 +665,27 @@ void main() {
 
   gl_FragColor = linearToOutputTexel( gl_FragColor );
   
-}`;new m,fe;const p={uniforms:{mNear:{value:1},mFar:{value:1e3},bokehNear:{value:0},bokehFarBack:{value:1},bokehFarFront:{value:1}},vertexShader:`
+}`;
+new m(), fe;
+const p = {
+  uniforms: {
+    mNear: {
+      value: 1
+    },
+    mFar: {
+      value: 1e3
+    },
+    bokehNear: {
+      value: 0
+    },
+    bokehFarBack: {
+      value: 1
+    },
+    bokehFarFront: {
+      value: 1
+    }
+  },
+  vertexShader: `
 
     varying float vViewZDepth;
 
@@ -548,7 +696,8 @@ void main() {
 
       vViewZDepth = - mvPosition.z;
 
-    }`,vertexShaderY:`
+    }`,
+  vertexShaderY: `
 
     varying float vViewZDepth;
 
@@ -559,7 +708,8 @@ void main() {
 
       vViewZDepth = - mvPosition.y;
 
-    }`,vertexShaderNone:`
+    }`,
+  vertexShaderNone: `
 
     varying float vViewZDepth;
 
@@ -570,7 +720,8 @@ void main() {
 
       vViewZDepth = 10000.;
 
-    }`,vertexShaderForce:`
+    }`,
+  vertexShaderForce: `
 
     varying float vViewZDepth;
 
@@ -581,7 +732,8 @@ void main() {
 
       vViewZDepth = 0.;
 
-    }`,fragmentShader:`
+    }`,
+  fragmentShader: `
 
     uniform float mNear;
     uniform float mFar;
@@ -608,7 +760,9 @@ void main() {
       gl_FragColor = vec4( vec3( depth, bokeh, 0. ), 1.0 );
       // gl_FragColor = vec4( vec3( vViewZDepth / 700. ), 1.0 );
 
-    }`};var _e=`#define PI 3.141592653589793
+    }`
+};
+var _e = `#define PI 3.141592653589793
 
 varying vec2 vUv;
 
@@ -1085,4 +1239,777 @@ void main() {
   
   
   
-}`;const z={src:"/_astro/noise.4311fcc9.jpg",width:1600,height:964,format:"jpg"},Be={src:"/_astro/noise_dark.d435da1e.jpg",width:1600,height:964,format:"jpg"},Ue={hideNoise:!1,showDepth:!1,showBokeh:!1,mNear:.1,mFar:550,maxblur:2,maxblurNight:2,maxblurFull:0,blurFocus:1,blurExponent:1,blurCenter:new m,rShift:2,rShiftOpacity:.6,noiseMin:.85,noiseMax:1,noiseGrayScale:0,bokehNear:0,bokehFarBack:1,bokehFarFront:1,fogNear:1,fogFar:1,brightness:1,brightnessNight:1,whiteness:0,noiseProgress:0,noiseDarkness:1,uRay:[{center:new m,rotation:0,speed:0,offset:0,width:0,edge:0,rayDistance:0,opacity:0},{center:new m,rotation:0,speed:0,offset:0,width:0,edge:0,rayDistance:0,opacity:0},{center:new m,rotation:0,speed:0,offset:0,width:0,edge:0,rayDistance:0,opacity:0}],time:0,transparent:!1,opacity:1,uIsNightMode:!1,uIsNightModeLogo:!1,nightModeThreshold1:.5,nightModeThreshold2:.5,nightModeThreshold3:.5,nightModeThreshold4:.5,nightModeBrightness1:1,nightModeBrightness2:.5,nightModeBrightness3:.3,nightModeBrightness4:1,monochromeMax:.25,monochromeExponent:1},Re=new Me,Ee=de(z.src),Te=de(Be.src);function rn(e){const{pixelRatio:a,camera:f,folder:c,transparent:C=!1,isDirectionY:y=!1,minNear:I=0,isNight:d=!1}=e,n=k(Ue,e.effectController||{});!d&&e.effectController?.uRay&&(n.uRay=[...e.effectController?.uRay.map(o=>k({},o))]);const s=e.width*a,M=e.height*a,V=new Fe,j=new ke,N=new L(s,M,{type:G}),_=new L(s,M,{type:G}),B=new L(s,M,{type:G}),K={uniforms:{hideNoise:n.hideNoise,showDepth:n.showDepth,showBokeh:n.showBokeh,mNear:n.mNear,mFar:n.mFar,tColorBack:null,tColor:null,tDepth:null,objectResolution:new m(s,M),tNoise:null,tNoiseDark:null,textureResolution:new m(z.width,z.height),noiseProgress:n.noiseProgress,noiseDarkness:n.noiseDarkness,maxblur:n[d?"maxblurNight":"maxblur"],maxblurFull:n.maxblurFull,blurFocus:n.blurFocus,blurExponent:n.blurExponent,blurCenter:n.blurCenter,rShift:d?0:n.rShift,rShiftOpacity:d?0:n.rShiftOpacity,noiseMin:n.noiseMin,noiseMax:n.noiseMax,noiseGrayScale:n.noiseGrayScale,bokehNear:n.bokehNear,bokehFarBack:n.bokehFarBack,bokehFarFront:n.bokehFarFront,fogNear:n.fogNear,fogFar:n.fogFar,brightness:n[d?"brightnessNight":"brightness"],whiteness:n.whiteness,uRay:n.uRay,time:n.time,transparent:C,opacity:n.opacity,uIsNightMode:d,uIsNightModeLogo:n.uIsNightModeLogo,nightModeThreshold1:n.nightModeThreshold1,nightModeThreshold2:n.nightModeThreshold2,nightModeThreshold3:n.nightModeThreshold3,nightModeThreshold4:n.nightModeThreshold4,nightModeBrightness1:n.nightModeBrightness1,nightModeBrightness2:n.nightModeBrightness2,nightModeBrightness3:n.nightModeBrightness3,nightModeBrightness4:n.nightModeBrightness4,monochromeMax:n.monochromeMax,monochromeExponent:n.monochromeExponent},vertexShader:fe,fragmentShader:_e},h=we(K.uniforms);h.tColorBack.value=N.texture,h.tColor.value=_.texture,h.tDepth.value=B.texture,h.objectResolution.value=new m(s,M),h.tNoise.value=Ee,h.tNoiseDark.value=Te;const Z=new w({uniforms:h,vertexShader:K.vertexShader,fragmentShader:K.fragmentShader,transparent:C,defines:{samples:W?15:30,samplesDepth:W?5:20}}),r=q(h),U=new Se(Re,Z);V.add(U);const g=new w({uniforms:k({},p.uniforms),vertexShader:p[y?"vertexShaderY":"vertexShader"],fragmentShader:p.fragmentShader});g.uniforms.mNear.value=n.mNear,g.uniforms.mFar.value=n.mFar,g.uniforms.bokehNear.value=n.bokehNear,g.uniforms.bokehFarBack.value=n.bokehFarBack,g.uniforms.bokehFarFront.value=n.bokehFarFront;const F=q(g.uniforms),R=new w({uniforms:k({},p.uniforms),vertexShader:p.vertexShaderNone,fragmentShader:p.fragmentShader});R.uniforms.mNear.value=n.mNear,R.uniforms.mFar.value=n.mFar;const E=new w({uniforms:k({},p.uniforms),vertexShader:p.vertexShaderForce,fragmentShader:p.fragmentShader});if(E.uniforms.mNear.value=n.mNear,E.uniforms.mFar.value=n.mFar,Oe.enablePane&&c){const{title:o}=c,u=c.addFolder({title:"postprocessing",expanded:d});u.addInput(r.hideNoise,"value",{label:"hideNoise",presetKey:`${o} hideNoise`}),u.addInput(r.transparent,"value",{label:"ぼかしのみ表示",presetKey:`${o} transparent`});{const t=u.addFolder({title:"depth",expanded:!1});t.addInput(r.showDepth,"value",{label:"showDepth",presetKey:`${o} showDepth`}),t.addInput(F.mNear,"value",{label:"mNear",presetKey:`${o} mNear`,min:I,max:f.far*2}),t.addInput(F.mFar,"value",{label:"mFar",presetKey:`${o} mFar`,min:I,max:f.far*2})}{const t=u.addFolder({title:"ぼかし",expanded:!1});t.addInput(r.showBokeh,"value",{label:"showBokeh",presetKey:`${o} showBokeh`}),t.addInput(r.maxblur,"value",{label:"maxblur",presetKey:`${o} maxblur`,min:0,max:10,step:.1}),t.addInput(r.maxblurFull,"value",{label:"maxblurFull",presetKey:`${o} maxblurFull`,min:0,max:10,step:.1}),t.addInput(r.blurFocus,"value",{label:"blurFocus",presetKey:`${o} blurFocus`,min:0,max:10,step:.1}),t.addInput(r.blurExponent,"value",{label:"blurExponent",presetKey:`${o} blurExponent`,min:0,max:10,step:.1}),t.addInput(r.blurCenter,"value",{label:"blurCenter",presetKey:`${o} blurCenter`,x:{step:.01},y:{step:.01}}),t.addInput(F.bokehNear,"value",{label:"bokehNear",presetKey:`${o} bokehNear`,min:0,step:.01}),t.addInput(F.bokehFarBack,"value",{label:"bokehFarBack",presetKey:`${o} bokehFarBack`,min:0,step:.01}),t.addInput(F.bokehFarFront,"value",{label:"bokehFarFront",presetKey:`${o} bokehFarFront`,min:0,step:.01})}{const t=u.addFolder({title:"境界線ぼかし（色ずらし）",expanded:!1});t.addInput(r.rShift,"value",{label:"rShift",presetKey:`${o} rShift`,min:0,max:3}),t.addInput(r.rShiftOpacity,"value",{label:"rShiftOpacity",presetKey:`${o} rShiftOpacity`,min:0,max:1})}{const t=u.addFolder({title:"ホワイトノイズ",expanded:!1});t.addInput(r.noiseMin,"value",{label:"noiseMin",presetKey:`${o} noiseMin`,min:0,max:1}),t.addInput(r.noiseMax,"value",{label:"noiseMax",presetKey:`${o} noiseMax`,min:0,max:1}),t.addInput(r.noiseGrayScale,"value",{label:"noiseGrayScale",presetKey:`${o} noiseGrayScale`,min:0,max:1}),t.addInput(r.noiseDarkness,"value",{label:"暗いノイズ",presetKey:`${o} noiseDarkness`,min:0,max:1})}{const t=u.addFolder({title:"フォグ",expanded:!1});t.addInput(r.fogNear,"value",{label:"near",presetKey:`${o} fogNear`,min:0,max:1}),t.addInput(r.fogFar,"value",{label:"far",presetKey:`${o} fogFar`,min:0,max:1})}{const t=u.addFolder({title:"明度",expanded:!1});t.addInput(r.brightness,"value",{label:"明度",presetKey:`${o} brightness`,min:0,max:1}),t.addInput(r.whiteness,"value",{label:"白さ",presetKey:`${o} whiteness`,min:0,max:1})}{const t=u.addFolder({title:"光",expanded:!1});r.uRay.value.forEach((i,b)=>{const v=`ray ${b+1}`,x=t.addFolder({title:v,expanded:i.opacity>0});x.addInput(i,"center",{presetKey:`${o} ${v} center`,x:{min:-2,max:2},y:{min:-2,max:2,inverted:!0}}),x.addInput(i,"rotation",{presetKey:`${o} ${v} rotation`,min:0,max:.2,step:.001}),x.addInput(i,"speed",{presetKey:`${o} ${v} speed`,min:0}),x.addInput(i,"offset",{presetKey:`${o} ${v} offset`,min:0,max:.1,step:.001}),x.addInput(i,"width",{presetKey:`${o} ${v} width`,min:0,max:.1,step:.001}),x.addInput(i,"edge",{presetKey:`${o} ${v} edge`,min:0,max:.1,step:.001}),x.addInput(i,"rayDistance",{presetKey:`${o} ${v} rayDistance`,min:0}),x.addInput(i,"opacity",{presetKey:`${o} ${v} opacity`,min:0,max:1})})}u.addInput(r.opacity,"value",{label:"opacity",presetKey:`${o} opacity`,min:0,max:1});{const t=u.addFolder({title:"ナイトモード",expanded:d});t.addInput(r.uIsNightMode,"value",{label:"ナイトモード",presetKey:`${o} uIsNightMode`}),t.addInput(r.nightModeThreshold1,"value",{label:"しきい値 1",presetKey:`${o} nightModeThreshold1`,min:0,max:1,step:.01}),t.addInput(r.nightModeThreshold2,"value",{label:"しきい値 2",presetKey:`${o} nightModeThreshold2`,min:0,max:1,step:.01}),t.addInput(r.nightModeThreshold3,"value",{label:"しきい値 3",presetKey:`${o} nightModeThreshold3`,min:0,max:1,step:.01}),t.addInput(r.nightModeThreshold4,"value",{label:"しきい値（背景）",presetKey:`${o} nightModeThreshold4`,min:0,max:1,step:.01}),t.addInput(r.nightModeBrightness1,"value",{label:"明るさ 1",presetKey:`${o} nightModeBrightness1`,min:0,max:1,step:.01}),t.addInput(r.nightModeBrightness2,"value",{label:"明るさ 2",presetKey:`${o} nightModeBrightness2`,min:0,max:1,step:.01}),t.addInput(r.nightModeBrightness3,"value",{label:"明るさ 3",presetKey:`${o} nightModeBrightness3`,min:0,max:1,step:.01}),t.addInput(r.nightModeBrightness4,"value",{label:"明るさ（背景）",presetKey:`${o} nightModeBrightness4`,min:0,max:1,step:.01}),t.addInput(r.monochromeMax,"value",{label:"明るさ",presetKey:`${o} monochromeMax`,min:0,max:1,step:.01}),t.addInput(r.monochromeExponent,"value",{label:"トーンカーブ",presetKey:`${o} monochromeExponent`,min:0,max:5,step:.01})}}return{scene:V,camera:j,rtTextureColorBack:N,rtTextureColor:_,rtTextureDepth:B,bokeh_uniforms:h,bokehUniformsWithoutValue:r,materialBokeh:Z,materialDepth:g,materialDepthNone:R,materialDepthForce:E,quad:U,resize(o,u,t){const i=o*t,b=u*t;j.resize(i,b),N.setSize(i,b),_.setSize(i,b),B.setSize(i,b),h.objectResolution.value=new m(i,b),U.scale.set(i,b,1)},dispose(){N.dispose(),_.dispose(),B.dispose(),g.dispose(),R.dispose(),E.dispose(),U.dispose()}}}const{pow:l,sqrt:A,sin:S,cos:he,PI:O}=Math,H=1.70158,T=H*1.525,ve=H+1,pe=2*O/3,Y=2*O/4.5,P=7.5625,D=2.75;function J(e){return e}function X(e){return e*e}function ee(e){return 1-(1-e)*(1-e)}function ne(e){return e<.5?2*e*e:1-l(-2*e+2,2)/2}function oe(e){return e*e*e}function te(e){return 1-l(1-e,3)}function re(e){return e<.5?4*e*e*e:1-l(-2*e+2,3)/2}function ae(e){return e*e*e*e}function le(e){return 1-l(1-e,4)}function ie(e){return e<.5?8*e*e*e*e:1-l(-2*e+2,4)/2}function se(e){return e*e*e*e*e}function ce(e){return 1-l(1-e,5)}function ue(e){return e<.5?16*e*e*e*e*e:1-l(-2*e+2,5)/2}function Pe(e){return 1-he(e*O/2)}function Le(e){return S(e*O/2)}function Ae(e){return-(he(O*e)-1)/2}function $e(e){return e===0?0:l(2,10*e-10)}function He(e){return e===1?1:1-l(2,-10*e)}function Ke(e){return e===0?0:e===1?1:e<.5?l(2,20*e-10)/2:(2-l(2,-20*e+10))/2}function Ge(e){return 1-A(1-l(e,2))}function ze(e){return A(1-l(e-1,2))}function Ve(e){return e<.5?(1-A(1-l(2*e,2)))/2:(A(1-l(-2*e+2,2))+1)/2}function je(e){return ve*e*e*e-H*e*e}function Ze(e){return 1+ve*l(e-1,3)+H*l(e-1,2)}function Qe(e){return e<.5?l(2*e,2)*((T+1)*2*e-T)/2:(l(2*e-2,2)*((T+1)*(e*2-2)+T)+2)/2}function qe(e){return e===0?0:e===1?1:-l(2,10*e-10)*S((e*10-10.75)*pe)}function We(e){return e===0?0:e===1?1:l(2,-10*e)*S((e*10-.75)*pe)+1}function Ye(e){return e===0?0:e===1?1:e<.5?-(l(2,20*e-10)*S((20*e-11.125)*Y))/2:l(2,-20*e+10)*S((20*e-11.125)*Y)/2+1}function $(e){return e<1/D?P*e*e:e<2/D?P*(e-=1.5/D)*e+.75:e<2.5/D?P*(e-=2.25/D)*e+.9375:P*(e-=2.625/D)*e+.984375}function Je(e){return 1-$(1-e)}const Xe=$;function en(e){return e<.5?(1-$(1-2*e))/2:(1+$(2*e-1))/2}const an={linear:J,none:J,"sine.in":Pe,"sine.out":Le,"sine.inOut":Ae,"quad.in":X,"quad.out":ee,"quad.inOut":ne,"power1.in":X,"power1.out":ee,"power1.inOut":ne,"cubic.in":oe,"cubic.out":te,"cubic.inOut":re,"power2.in":oe,"power2.out":te,"power2.inOut":re,"quart.in":ae,"quart.out":le,"quart.inOut":ie,"power3.in":ae,"power3.out":le,"power3.inOut":ie,"quint.in":se,"quint.out":ce,"quint.inOut":ue,"power4.in":se,"power4.out":ce,"power4.inOut":ue,"expo.in":$e,"expo.out":He,"expo.inOut":Ke,"circ.in":Ge,"circ.out":ze,"circ.inOut":Ve,"back.in":je,"back.out":Ze,"back.inOut":Qe,"elastic.in":qe,"elastic.out":We,"elastic.inOut":Ye,"bounce.in":Je,"bounce.out":Xe,"bounce.inOut":en};export{tn as B,an as e,rn as g,z as i};
+}`;
+const z = {
+    src: "/_astro/noise.4311fcc9.jpg",
+    width: 1600,
+    height: 964,
+    format: "jpg"
+  },
+  Be = {
+    src: "/_astro/noise_dark.d435da1e.jpg",
+    width: 1600,
+    height: 964,
+    format: "jpg"
+  },
+  Ue = {
+    hideNoise: !1,
+    showDepth: !1,
+    showBokeh: !1,
+    mNear: 0.1,
+    mFar: 550,
+    maxblur: 2,
+    maxblurNight: 2,
+    maxblurFull: 0,
+    blurFocus: 1,
+    blurExponent: 1,
+    blurCenter: new m(),
+    rShift: 2,
+    rShiftOpacity: 0.6,
+    noiseMin: 0.85,
+    noiseMax: 1,
+    noiseGrayScale: 0,
+    bokehNear: 0,
+    bokehFarBack: 1,
+    bokehFarFront: 1,
+    fogNear: 1,
+    fogFar: 1,
+    brightness: 1,
+    brightnessNight: 1,
+    whiteness: 0,
+    noiseProgress: 0,
+    noiseDarkness: 1,
+    uRay: [
+      {
+        center: new m(),
+        rotation: 0,
+        speed: 0,
+        offset: 0,
+        width: 0,
+        edge: 0,
+        rayDistance: 0,
+        opacity: 0
+      },
+      {
+        center: new m(),
+        rotation: 0,
+        speed: 0,
+        offset: 0,
+        width: 0,
+        edge: 0,
+        rayDistance: 0,
+        opacity: 0
+      },
+      {
+        center: new m(),
+        rotation: 0,
+        speed: 0,
+        offset: 0,
+        width: 0,
+        edge: 0,
+        rayDistance: 0,
+        opacity: 0
+      }
+    ],
+    time: 0,
+    transparent: !1,
+    opacity: 1,
+    uIsNightMode: !1,
+    uIsNightModeLogo: !1,
+    nightModeThreshold1: 0.5,
+    nightModeThreshold2: 0.5,
+    nightModeThreshold3: 0.5,
+    nightModeThreshold4: 0.5,
+    nightModeBrightness1: 1,
+    nightModeBrightness2: 0.5,
+    nightModeBrightness3: 0.3,
+    nightModeBrightness4: 1,
+    monochromeMax: 0.25,
+    monochromeExponent: 1
+  },
+  Re = new Me(),
+  Ee = de(z.src),
+  Te = de(Be.src);
+function rn(e) {
+  var _e$effectController, _e$effectController2;
+  const {
+      pixelRatio: a,
+      camera: f,
+      folder: c,
+      transparent: C = !1,
+      isDirectionY: y = !1,
+      minNear: I = 0,
+      isNight: d = !1
+    } = e,
+    n = k(Ue, e.effectController || {});
+  !d &&
+    ((_e$effectController = e.effectController) === null ||
+    _e$effectController === void 0
+      ? void 0
+      : _e$effectController.uRay) &&
+    (n.uRay = [
+      ...((_e$effectController2 = e.effectController) === null ||
+      _e$effectController2 === void 0
+        ? void 0
+        : _e$effectController2.uRay.map((o) => k({}, o)))
+    ]);
+  const s = e.width * a,
+    M = e.height * a,
+    V = new Fe(),
+    j = new ke(),
+    N = new L(s, M, {
+      type: G
+    }),
+    _ = new L(s, M, {
+      type: G
+    }),
+    B = new L(s, M, {
+      type: G
+    }),
+    K = {
+      uniforms: {
+        hideNoise: n.hideNoise,
+        showDepth: n.showDepth,
+        showBokeh: n.showBokeh,
+        mNear: n.mNear,
+        mFar: n.mFar,
+        tColorBack: null,
+        tColor: null,
+        tDepth: null,
+        objectResolution: new m(s, M),
+        tNoise: null,
+        tNoiseDark: null,
+        textureResolution: new m(z.width, z.height),
+        noiseProgress: n.noiseProgress,
+        noiseDarkness: n.noiseDarkness,
+        maxblur: n[d ? "maxblurNight" : "maxblur"],
+        maxblurFull: n.maxblurFull,
+        blurFocus: n.blurFocus,
+        blurExponent: n.blurExponent,
+        blurCenter: n.blurCenter,
+        rShift: d ? 0 : n.rShift,
+        rShiftOpacity: d ? 0 : n.rShiftOpacity,
+        noiseMin: n.noiseMin,
+        noiseMax: n.noiseMax,
+        noiseGrayScale: n.noiseGrayScale,
+        bokehNear: n.bokehNear,
+        bokehFarBack: n.bokehFarBack,
+        bokehFarFront: n.bokehFarFront,
+        fogNear: n.fogNear,
+        fogFar: n.fogFar,
+        brightness: n[d ? "brightnessNight" : "brightness"],
+        whiteness: n.whiteness,
+        uRay: n.uRay,
+        time: n.time,
+        transparent: C,
+        opacity: n.opacity,
+        uIsNightMode: d,
+        uIsNightModeLogo: n.uIsNightModeLogo,
+        nightModeThreshold1: n.nightModeThreshold1,
+        nightModeThreshold2: n.nightModeThreshold2,
+        nightModeThreshold3: n.nightModeThreshold3,
+        nightModeThreshold4: n.nightModeThreshold4,
+        nightModeBrightness1: n.nightModeBrightness1,
+        nightModeBrightness2: n.nightModeBrightness2,
+        nightModeBrightness3: n.nightModeBrightness3,
+        nightModeBrightness4: n.nightModeBrightness4,
+        monochromeMax: n.monochromeMax,
+        monochromeExponent: n.monochromeExponent
+      },
+      vertexShader: fe,
+      fragmentShader: _e
+    },
+    h = we(K.uniforms);
+  (h.tColorBack.value = N.texture),
+    (h.tColor.value = _.texture),
+    (h.tDepth.value = B.texture),
+    (h.objectResolution.value = new m(s, M)),
+    (h.tNoise.value = Ee),
+    (h.tNoiseDark.value = Te);
+  const Z = new w({
+      uniforms: h,
+      vertexShader: K.vertexShader,
+      fragmentShader: K.fragmentShader,
+      transparent: C,
+      defines: {
+        samples: W ? 15 : 30,
+        samplesDepth: W ? 5 : 20
+      }
+    }),
+    r = q(h),
+    U = new Se(Re, Z);
+  V.add(U);
+  const g = new w({
+    uniforms: k({}, p.uniforms),
+    vertexShader: p[y ? "vertexShaderY" : "vertexShader"],
+    fragmentShader: p.fragmentShader
+  });
+  (g.uniforms.mNear.value = n.mNear),
+    (g.uniforms.mFar.value = n.mFar),
+    (g.uniforms.bokehNear.value = n.bokehNear),
+    (g.uniforms.bokehFarBack.value = n.bokehFarBack),
+    (g.uniforms.bokehFarFront.value = n.bokehFarFront);
+  const F = q(g.uniforms),
+    R = new w({
+      uniforms: k({}, p.uniforms),
+      vertexShader: p.vertexShaderNone,
+      fragmentShader: p.fragmentShader
+    });
+  (R.uniforms.mNear.value = n.mNear), (R.uniforms.mFar.value = n.mFar);
+  const E = new w({
+    uniforms: k({}, p.uniforms),
+    vertexShader: p.vertexShaderForce,
+    fragmentShader: p.fragmentShader
+  });
+  if (
+    ((E.uniforms.mNear.value = n.mNear),
+    (E.uniforms.mFar.value = n.mFar),
+    Oe.enablePane && c)
+  ) {
+    const { title: o } = c,
+      u = c.addFolder({
+        title: "postprocessing",
+        expanded: d
+      });
+    u.addInput(r.hideNoise, "value", {
+      label: "hideNoise",
+      presetKey: `${o} hideNoise`
+    }),
+      u.addInput(r.transparent, "value", {
+        label: "ぼかしのみ表示",
+        presetKey: `${o} transparent`
+      });
+    {
+      const t = u.addFolder({
+        title: "depth",
+        expanded: !1
+      });
+      t.addInput(r.showDepth, "value", {
+        label: "showDepth",
+        presetKey: `${o} showDepth`
+      }),
+        t.addInput(F.mNear, "value", {
+          label: "mNear",
+          presetKey: `${o} mNear`,
+          min: I,
+          max: f.far * 2
+        }),
+        t.addInput(F.mFar, "value", {
+          label: "mFar",
+          presetKey: `${o} mFar`,
+          min: I,
+          max: f.far * 2
+        });
+    }
+    {
+      const t = u.addFolder({
+        title: "ぼかし",
+        expanded: !1
+      });
+      t.addInput(r.showBokeh, "value", {
+        label: "showBokeh",
+        presetKey: `${o} showBokeh`
+      }),
+        t.addInput(r.maxblur, "value", {
+          label: "maxblur",
+          presetKey: `${o} maxblur`,
+          min: 0,
+          max: 10,
+          step: 0.1
+        }),
+        t.addInput(r.maxblurFull, "value", {
+          label: "maxblurFull",
+          presetKey: `${o} maxblurFull`,
+          min: 0,
+          max: 10,
+          step: 0.1
+        }),
+        t.addInput(r.blurFocus, "value", {
+          label: "blurFocus",
+          presetKey: `${o} blurFocus`,
+          min: 0,
+          max: 10,
+          step: 0.1
+        }),
+        t.addInput(r.blurExponent, "value", {
+          label: "blurExponent",
+          presetKey: `${o} blurExponent`,
+          min: 0,
+          max: 10,
+          step: 0.1
+        }),
+        t.addInput(r.blurCenter, "value", {
+          label: "blurCenter",
+          presetKey: `${o} blurCenter`,
+          x: {
+            step: 0.01
+          },
+          y: {
+            step: 0.01
+          }
+        }),
+        t.addInput(F.bokehNear, "value", {
+          label: "bokehNear",
+          presetKey: `${o} bokehNear`,
+          min: 0,
+          step: 0.01
+        }),
+        t.addInput(F.bokehFarBack, "value", {
+          label: "bokehFarBack",
+          presetKey: `${o} bokehFarBack`,
+          min: 0,
+          step: 0.01
+        }),
+        t.addInput(F.bokehFarFront, "value", {
+          label: "bokehFarFront",
+          presetKey: `${o} bokehFarFront`,
+          min: 0,
+          step: 0.01
+        });
+    }
+    {
+      const t = u.addFolder({
+        title: "境界線ぼかし（色ずらし）",
+        expanded: !1
+      });
+      t.addInput(r.rShift, "value", {
+        label: "rShift",
+        presetKey: `${o} rShift`,
+        min: 0,
+        max: 3
+      }),
+        t.addInput(r.rShiftOpacity, "value", {
+          label: "rShiftOpacity",
+          presetKey: `${o} rShiftOpacity`,
+          min: 0,
+          max: 1
+        });
+    }
+    {
+      const t = u.addFolder({
+        title: "ホワイトノイズ",
+        expanded: !1
+      });
+      t.addInput(r.noiseMin, "value", {
+        label: "noiseMin",
+        presetKey: `${o} noiseMin`,
+        min: 0,
+        max: 1
+      }),
+        t.addInput(r.noiseMax, "value", {
+          label: "noiseMax",
+          presetKey: `${o} noiseMax`,
+          min: 0,
+          max: 1
+        }),
+        t.addInput(r.noiseGrayScale, "value", {
+          label: "noiseGrayScale",
+          presetKey: `${o} noiseGrayScale`,
+          min: 0,
+          max: 1
+        }),
+        t.addInput(r.noiseDarkness, "value", {
+          label: "暗いノイズ",
+          presetKey: `${o} noiseDarkness`,
+          min: 0,
+          max: 1
+        });
+    }
+    {
+      const t = u.addFolder({
+        title: "フォグ",
+        expanded: !1
+      });
+      t.addInput(r.fogNear, "value", {
+        label: "near",
+        presetKey: `${o} fogNear`,
+        min: 0,
+        max: 1
+      }),
+        t.addInput(r.fogFar, "value", {
+          label: "far",
+          presetKey: `${o} fogFar`,
+          min: 0,
+          max: 1
+        });
+    }
+    {
+      const t = u.addFolder({
+        title: "明度",
+        expanded: !1
+      });
+      t.addInput(r.brightness, "value", {
+        label: "明度",
+        presetKey: `${o} brightness`,
+        min: 0,
+        max: 1
+      }),
+        t.addInput(r.whiteness, "value", {
+          label: "白さ",
+          presetKey: `${o} whiteness`,
+          min: 0,
+          max: 1
+        });
+    }
+    {
+      const t = u.addFolder({
+        title: "光",
+        expanded: !1
+      });
+      r.uRay.value.forEach((i, b) => {
+        const v = `ray ${b + 1}`,
+          x = t.addFolder({
+            title: v,
+            expanded: i.opacity > 0
+          });
+        x.addInput(i, "center", {
+          presetKey: `${o} ${v} center`,
+          x: {
+            min: -2,
+            max: 2
+          },
+          y: {
+            min: -2,
+            max: 2,
+            inverted: !0
+          }
+        }),
+          x.addInput(i, "rotation", {
+            presetKey: `${o} ${v} rotation`,
+            min: 0,
+            max: 0.2,
+            step: 0.001
+          }),
+          x.addInput(i, "speed", {
+            presetKey: `${o} ${v} speed`,
+            min: 0
+          }),
+          x.addInput(i, "offset", {
+            presetKey: `${o} ${v} offset`,
+            min: 0,
+            max: 0.1,
+            step: 0.001
+          }),
+          x.addInput(i, "width", {
+            presetKey: `${o} ${v} width`,
+            min: 0,
+            max: 0.1,
+            step: 0.001
+          }),
+          x.addInput(i, "edge", {
+            presetKey: `${o} ${v} edge`,
+            min: 0,
+            max: 0.1,
+            step: 0.001
+          }),
+          x.addInput(i, "rayDistance", {
+            presetKey: `${o} ${v} rayDistance`,
+            min: 0
+          }),
+          x.addInput(i, "opacity", {
+            presetKey: `${o} ${v} opacity`,
+            min: 0,
+            max: 1
+          });
+      });
+    }
+    u.addInput(r.opacity, "value", {
+      label: "opacity",
+      presetKey: `${o} opacity`,
+      min: 0,
+      max: 1
+    });
+    {
+      const t = u.addFolder({
+        title: "ナイトモード",
+        expanded: d
+      });
+      t.addInput(r.uIsNightMode, "value", {
+        label: "ナイトモード",
+        presetKey: `${o} uIsNightMode`
+      }),
+        t.addInput(r.nightModeThreshold1, "value", {
+          label: "しきい値 1",
+          presetKey: `${o} nightModeThreshold1`,
+          min: 0,
+          max: 1,
+          step: 0.01
+        }),
+        t.addInput(r.nightModeThreshold2, "value", {
+          label: "しきい値 2",
+          presetKey: `${o} nightModeThreshold2`,
+          min: 0,
+          max: 1,
+          step: 0.01
+        }),
+        t.addInput(r.nightModeThreshold3, "value", {
+          label: "しきい値 3",
+          presetKey: `${o} nightModeThreshold3`,
+          min: 0,
+          max: 1,
+          step: 0.01
+        }),
+        t.addInput(r.nightModeThreshold4, "value", {
+          label: "しきい値（背景）",
+          presetKey: `${o} nightModeThreshold4`,
+          min: 0,
+          max: 1,
+          step: 0.01
+        }),
+        t.addInput(r.nightModeBrightness1, "value", {
+          label: "明るさ 1",
+          presetKey: `${o} nightModeBrightness1`,
+          min: 0,
+          max: 1,
+          step: 0.01
+        }),
+        t.addInput(r.nightModeBrightness2, "value", {
+          label: "明るさ 2",
+          presetKey: `${o} nightModeBrightness2`,
+          min: 0,
+          max: 1,
+          step: 0.01
+        }),
+        t.addInput(r.nightModeBrightness3, "value", {
+          label: "明るさ 3",
+          presetKey: `${o} nightModeBrightness3`,
+          min: 0,
+          max: 1,
+          step: 0.01
+        }),
+        t.addInput(r.nightModeBrightness4, "value", {
+          label: "明るさ（背景）",
+          presetKey: `${o} nightModeBrightness4`,
+          min: 0,
+          max: 1,
+          step: 0.01
+        }),
+        t.addInput(r.monochromeMax, "value", {
+          label: "明るさ",
+          presetKey: `${o} monochromeMax`,
+          min: 0,
+          max: 1,
+          step: 0.01
+        }),
+        t.addInput(r.monochromeExponent, "value", {
+          label: "トーンカーブ",
+          presetKey: `${o} monochromeExponent`,
+          min: 0,
+          max: 5,
+          step: 0.01
+        });
+    }
+  }
+  return {
+    scene: V,
+    camera: j,
+    rtTextureColorBack: N,
+    rtTextureColor: _,
+    rtTextureDepth: B,
+    bokeh_uniforms: h,
+    bokehUniformsWithoutValue: r,
+    materialBokeh: Z,
+    materialDepth: g,
+    materialDepthNone: R,
+    materialDepthForce: E,
+    quad: U,
+    resize(o, u, t) {
+      const i = o * t,
+        b = u * t;
+      j.resize(i, b),
+        N.setSize(i, b),
+        _.setSize(i, b),
+        B.setSize(i, b),
+        (h.objectResolution.value = new m(i, b)),
+        U.scale.set(i, b, 1);
+    },
+    dispose() {
+      N.dispose(),
+        _.dispose(),
+        B.dispose(),
+        g.dispose(),
+        R.dispose(),
+        E.dispose(),
+        U.dispose();
+    }
+  };
+}
+const { pow: l, sqrt: A, sin: S, cos: he, PI: O } = Math,
+  H = 1.70158,
+  T = H * 1.525,
+  ve = H + 1,
+  pe = (2 * O) / 3,
+  Y = (2 * O) / 4.5,
+  P = 7.5625,
+  D = 2.75;
+function J(e) {
+  return e;
+}
+function X(e) {
+  return e * e;
+}
+function ee(e) {
+  return 1 - (1 - e) * (1 - e);
+}
+function ne(e) {
+  return e < 0.5 ? 2 * e * e : 1 - l(-2 * e + 2, 2) / 2;
+}
+function oe(e) {
+  return e * e * e;
+}
+function te(e) {
+  return 1 - l(1 - e, 3);
+}
+function re(e) {
+  return e < 0.5 ? 4 * e * e * e : 1 - l(-2 * e + 2, 3) / 2;
+}
+function ae(e) {
+  return e * e * e * e;
+}
+function le(e) {
+  return 1 - l(1 - e, 4);
+}
+function ie(e) {
+  return e < 0.5 ? 8 * e * e * e * e : 1 - l(-2 * e + 2, 4) / 2;
+}
+function se(e) {
+  return e * e * e * e * e;
+}
+function ce(e) {
+  return 1 - l(1 - e, 5);
+}
+function ue(e) {
+  return e < 0.5 ? 16 * e * e * e * e * e : 1 - l(-2 * e + 2, 5) / 2;
+}
+function Pe(e) {
+  return 1 - he((e * O) / 2);
+}
+function Le(e) {
+  return S((e * O) / 2);
+}
+function Ae(e) {
+  return -(he(O * e) - 1) / 2;
+}
+function $e(e) {
+  return e === 0 ? 0 : l(2, 10 * e - 10);
+}
+function He(e) {
+  return e === 1 ? 1 : 1 - l(2, -10 * e);
+}
+function Ke(e) {
+  return e === 0
+    ? 0
+    : e === 1
+    ? 1
+    : e < 0.5
+    ? l(2, 20 * e - 10) / 2
+    : (2 - l(2, -20 * e + 10)) / 2;
+}
+function Ge(e) {
+  return 1 - A(1 - l(e, 2));
+}
+function ze(e) {
+  return A(1 - l(e - 1, 2));
+}
+function Ve(e) {
+  return e < 0.5
+    ? (1 - A(1 - l(2 * e, 2))) / 2
+    : (A(1 - l(-2 * e + 2, 2)) + 1) / 2;
+}
+function je(e) {
+  return ve * e * e * e - H * e * e;
+}
+function Ze(e) {
+  return 1 + ve * l(e - 1, 3) + H * l(e - 1, 2);
+}
+function Qe(e) {
+  return e < 0.5
+    ? (l(2 * e, 2) * ((T + 1) * 2 * e - T)) / 2
+    : (l(2 * e - 2, 2) * ((T + 1) * (e * 2 - 2) + T) + 2) / 2;
+}
+function qe(e) {
+  return e === 0
+    ? 0
+    : e === 1
+    ? 1
+    : -l(2, 10 * e - 10) * S((e * 10 - 10.75) * pe);
+}
+function We(e) {
+  return e === 0
+    ? 0
+    : e === 1
+    ? 1
+    : l(2, -10 * e) * S((e * 10 - 0.75) * pe) + 1;
+}
+function Ye(e) {
+  return e === 0
+    ? 0
+    : e === 1
+    ? 1
+    : e < 0.5
+    ? -(l(2, 20 * e - 10) * S((20 * e - 11.125) * Y)) / 2
+    : (l(2, -20 * e + 10) * S((20 * e - 11.125) * Y)) / 2 + 1;
+}
+function $(e) {
+  return e < 1 / D
+    ? P * e * e
+    : e < 2 / D
+    ? P * (e -= 1.5 / D) * e + 0.75
+    : e < 2.5 / D
+    ? P * (e -= 2.25 / D) * e + 0.9375
+    : P * (e -= 2.625 / D) * e + 0.984375;
+}
+function Je(e) {
+  return 1 - $(1 - e);
+}
+const Xe = $;
+function en(e) {
+  return e < 0.5 ? (1 - $(1 - 2 * e)) / 2 : (1 + $(2 * e - 1)) / 2;
+}
+const an = {
+  linear: J,
+  none: J,
+  "sine.in": Pe,
+  "sine.out": Le,
+  "sine.inOut": Ae,
+  "quad.in": X,
+  "quad.out": ee,
+  "quad.inOut": ne,
+  "power1.in": X,
+  "power1.out": ee,
+  "power1.inOut": ne,
+  "cubic.in": oe,
+  "cubic.out": te,
+  "cubic.inOut": re,
+  "power2.in": oe,
+  "power2.out": te,
+  "power2.inOut": re,
+  "quart.in": ae,
+  "quart.out": le,
+  "quart.inOut": ie,
+  "power3.in": ae,
+  "power3.out": le,
+  "power3.inOut": ie,
+  "quint.in": se,
+  "quint.out": ce,
+  "quint.inOut": ue,
+  "power4.in": se,
+  "power4.out": ce,
+  "power4.inOut": ue,
+  "expo.in": $e,
+  "expo.out": He,
+  "expo.inOut": Ke,
+  "circ.in": Ge,
+  "circ.out": ze,
+  "circ.inOut": Ve,
+  "back.in": je,
+  "back.out": Ze,
+  "back.inOut": Qe,
+  "elastic.in": qe,
+  "elastic.out": We,
+  "elastic.inOut": Ye,
+  "bounce.in": Je,
+  "bounce.out": Xe,
+  "bounce.inOut": en
+};
+export { tn as B, an as e, rn as g, z as i };

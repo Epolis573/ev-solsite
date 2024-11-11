@@ -1,4 +1,4 @@
-var n=`precision highp float;
+var n = `precision highp float;
 
 varying vec2 vUv;
 
@@ -6,7 +6,8 @@ void main() {
   float color = min(max(1. - pow((length((vUv - 0.5) / vec2(1.2, 1.)) - 0.1) * 2., 10.), 0.), 0.75);
 
   gl_FragColor = vec4(vec3(0.), color);
-}`,o=`precision highp float;
+}`,
+  o = `precision highp float;
 
 varying vec2 vUv;
 
@@ -28,7 +29,8 @@ void main() {
   
   gl_FragColor = color;
   
-}`,c=`precision highp float;
+}`,
+  c = `precision highp float;
 
 uniform sampler2D uTexture;
 uniform float uOpacity;
@@ -80,7 +82,14 @@ void main() {
   
   
   
-}`;const e={src:"/_astro/headlight.0fde656a.png",width:1187,height:744,format:"png"};var r=`precision highp float;
+}`;
+const e = {
+  src: "/_astro/headlight.0fde656a.png",
+  width: 1187,
+  height: 744,
+  format: "png"
+};
+var r = `precision highp float;
 
 uniform sampler2D uTexture;
 uniform float uOpacity;
@@ -112,4 +121,11 @@ void main() {
   
   
   
-}`;const v={src:"/_astro/taillight.bbbec3c9.png",width:1240,height:488,format:"png"};export{v as a,o as b,n as c,c as h,e as i,r as t};
+}`;
+const v = {
+  src: "/_astro/taillight.bbbec3c9.png",
+  width: 1240,
+  height: 488,
+  format: "png"
+};
+export { v as a, o as b, n as c, c as h, e as i, r as t };
