@@ -432,6 +432,7 @@ gl_FragColor = texColor;
           this.onRender();
         }));
     });
+    this.uniforms_buffer = { radius: { value: 0 } }; 
   }
   onInit() {
     var _this$el3, _this$el4;

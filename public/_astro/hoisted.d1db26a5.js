@@ -1711,7 +1711,15 @@ gl_FragColor = vec4(repeatColor.rgb, brushColor.r);
   onTick() {
     this.renderer.render(this.scene, this.camera_ortho);
   }
+  
   onResize() {
+    if (this.mesh) {
+      this.mesh.scale.set(
+        this.width / this.initialWidth,
+        this.height / this.initialHeight,
+        1
+      );
+    }
     var _this$el20, _this$el21;
     (this.width =
       (_this$el20 = this.el) === null || _this$el20 === void 0

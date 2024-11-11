@@ -800,6 +800,7 @@ import {
                         };
                       })();
                     function I(w) {
+                      if (!w) return;
                       w.__complete ||
                         (R(w),
                         x(w),
