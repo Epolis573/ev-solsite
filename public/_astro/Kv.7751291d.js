@@ -1103,7 +1103,7 @@ class ze extends oe {
     this.postprocessing = s;
   }
   initOrbitControls() {
-    se(() => import("./OrbitControls.105ec41e.js"), ["_astro/OrbitControls.105ec41e.js", "_astro/constants.e6c90e33.js", "_astro/PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js"]).then(({
+    se(() => import("./OrbitControls.js"), ["_astro/OrbitControls.js", "_astro/constants.e6c90e33.js", "_astro/PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js"]).then(({
       OrbitControls: t
     }) => {
       const n = new t(this.camera, this.option.renderer.domElement);

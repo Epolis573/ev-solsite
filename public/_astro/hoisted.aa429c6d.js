@@ -1337,7 +1337,7 @@ class ws extends _t {
     });
   }
   initOrbitControls() {
-    se(() => import("./OrbitControls.105ec41e.js"), ["_astro/OrbitControls.105ec41e.js", "_astro/constants.e6c90e33.js", "_astro/PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js"]).then(({
+    se(() => import("./OrbitControls.js"), ["_astro/OrbitControls.js", "_astro/constants.e6c90e33.js", "_astro/PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js"]).then(({
       OrbitControls: t
     }) => {
       const e = new t(this.camera, this.option.renderer.domElement);
@@ -2002,7 +2002,7 @@ class Ns extends _t {
     this.postprocessing = i;
   }
   initOrbitControls() {
-    se(() => import("./OrbitControls.105ec41e.js"), ["_astro/OrbitControls.105ec41e.js", "_astro/constants.e6c90e33.js", "_astro/PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js"]).then(({
+    se(() => import("./OrbitControls.js"), ["_astro/OrbitControls.js", "_astro/constants.e6c90e33.js", "_astro/PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js"]).then(({
       OrbitControls: t
     }) => {
       const e = this.controls = new t(this.camera, this.option.renderer.domElement);
@@ -3038,7 +3038,7 @@ class Ps extends _t {
     this.postprocessing = i;
   }
   initOrbitControls() {
-    se(() => import("./OrbitControls.105ec41e.js"), ["_astro/OrbitControls.105ec41e.js", "_astro/constants.e6c90e33.js", "_astro/PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js"]).then(({
+    se(() => import("./OrbitControls.js"), ["_astro/OrbitControls.js", "_astro/constants.e6c90e33.js", "_astro/PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js"]).then(({
       OrbitControls: t
     }) => {
       const e = this.controls = new t(this.camera, this.option.renderer.domElement);

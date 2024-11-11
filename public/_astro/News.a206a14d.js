@@ -1494,9 +1494,9 @@ class Xe extends ae {
   }
   initOrbitControls() {
     oe(
-      () => import("./OrbitControls.105ec41e.js"),
+      () => import("./OrbitControls.js"),
       [
-        "_astro/OrbitControls.105ec41e.js",
+        "_astro/OrbitControls.js",
         "_astro/constants.e6c90e33.js",
         "_astro/PageTop.astro_astro_type_script_index_0_lang.b1bb8cc1.js"
       ]
