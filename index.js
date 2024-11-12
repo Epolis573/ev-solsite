@@ -42,6 +42,12 @@ app.get('/white-label', (req, res) => {
 app.get('/why-use', (req, res) => {
     res.render('why-use');
 });
+app.get('/news/news-sample1', (req, res) => {
+    res.render('./news-stored/newssample1');
+});
+app.get('/news/news-sample2', (req, res) => {
+    res.render('./news-stored/newssample2');
+});
 
 // Listen
 app.listen(port, () => console.info(`Listening on port ${port}`));
